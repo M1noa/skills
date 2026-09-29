@@ -1,6 +1,6 @@
 # Validation and Reporting
 
-The bar that turns raw hunting into rigorously-validated, risk-calibrated, exploit-confirmed findings. Phases 3, 4, 5, and 6 of the workflow in [SKILL.md](SKILL.md).
+The bar that turns raw hunting into rigorously-validated, risk-calibrated, exploit-confirmed findings. Phases 3, 4, 5, and 6 of the workflow in [SKILL.md](../SKILL.md).
 
 ---
 
@@ -12,7 +12,7 @@ Phase 2 produces a pile of candidate findings. Phase 3 culls them ruthlessly.
 
 Before validation, dedupe. Cross-reference every finding against:
 - Other findings in the current batch (same `code_paths` + similar `title` → merge).
-- Prior-run `findings.json` from `~/security-audit-skill/<repo>/run-<N>/` (see [SKILL.md "Coverage and prior runs"](SKILL.md)) — known findings get mentioned, not re-hunted.
+- Prior-run `findings.json` from `~/security-audit-skill/<repo>/run-<N>/` (see [SKILL.md "Coverage and prior runs"](../SKILL.md)) — known findings get mentioned, not re-hunted.
 
 Merge rules (apply deterministically):
 - **Title**: pick the most comprehensive.
@@ -155,7 +155,7 @@ One section per `NEEDS_VALIDATION` record: trace, exact blocker, affected bounda
 
 ## Phase 5 — Structured output (`findings.json`)
 
-Produce a machine-readable `findings.json` — an array validated by `report-schema.json` (`node validate-findings.cjs findings.json`). Field shape below; `NEEDS_VALIDATION` records carry `blockers[]` + `validation_plan` and no severity.
+Produce a machine-readable `findings.json` — an array validated by `../schemas/report-schema.json` (`node ../scripts/validate-findings.cjs findings.json`). Field shape below; `NEEDS_VALIDATION` records carry `blockers[]` + `validation_plan` and no severity.
 
 ```json
 {
@@ -295,7 +295,7 @@ Never leave the codebase in an altered state after this phase — full rollback.
 
 ## Anti-patterns (enforced by Phase 3 + Phase 6)
 
-Re-stating the [SKILL.md anti-patterns](SKILL.md) in operational terms:
+Re-stating the [SKILL.md anti-patterns](../SKILL.md) in operational terms:
 - A scanner hit alone is not a finding (Rule 6 of the 13, re-verified in Phase 6).
 - A defense-in-depth gap is not a finding (Rule 2, cap 8 of the 27).
 - A scanner-clean run is not a clean bill of health (Phase 2 still has to hunt business logic, chains, and supply chain).

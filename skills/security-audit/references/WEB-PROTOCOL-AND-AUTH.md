@@ -21,7 +21,7 @@ OWASP WSTG identifiers in parentheses — tag findings with them.
 
 ## Authentication (WSTG-ATHN)
 
-- **Credential stuffing / brute force**: no rate limit, no lockout, no IP throttle. But check whether rate limiting is at the app layer *or the CDN* — CDN-level rate limiting is a valid architecture; don't flag its absence at app layer if it's enforced upstream. See [SKILL.md anti-pattern 3](SKILL.md).
+- **Credential stuffing / brute force**: no rate limit, no lockout, no IP throttle. But check whether rate limiting is at the app layer *or the CDN* — CDN-level rate limiting is a valid architecture; don't flag its absence at app layer if it's enforced upstream. See [SKILL.md anti-pattern 3](../SKILL.md).
 - **Password reset poisoning** (WSTG-ATHN-09): reset token sent to an attacker-controlled host header, predictable tokens, tokens that don't expire, tokens that survive use.
 - **MFA bypass**: MFA-enforcement middleware that can be skipped (request flow that lands on the post-MFA endpoint without the MFA step), MFA that doesn't protect the same session across re-auth, "remember this device" tokens that are guessable/over-permissive.
 - **Default / test credentials** (WSTG-ATHN-04): shipped seed creds still live in prod, dev users created by migration scripts.
