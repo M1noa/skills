@@ -8,6 +8,8 @@ How to run a pass, what to return, what may be claimed, and where every piece of
 
 Run checks **one at a time**. A combined pass goes blind, and that was measured on this very taxonomy.
 
+**Before the numbered pass, run the scanner** — `node scripts/scan-prose.cjs <file>`. It resolves Tier F literals, Tier V cluster and density rules, Tier Q metrics, and the format checks, and it hands them back bucketed as `find` / `review` / `clarity` / `metrics`. Everything it prints still goes through the guardrails below: a `?` is not a finding until its carve-out is ruled out, and no number in its output may be reported as a verdict.
+
 1. **Scope.** Identify the artifact type, then resolve domain, context, and voice. Say which you picked and why if any were inferred. For `edit` mode on a large file, confirm scope before touching anything.
 2. **Protect.** Mark the regions that are off-limits before reading for tells: fenced code blocks, inline code, YAML frontmatter, blockquotes, tables, URLs, file paths, quoted text, and anything explicitly illustrative. See the preservation invariants below.
 3. **Date it.** If the text can be dated to before **30 November 2022**, stop looking for machine tells. Commit history, publication date, and revision tools all count.
@@ -69,11 +71,21 @@ Two carve-outs, because this skill instructs both: rewording a heading to fix Ti
 
 ## Output templates
 
+**Severity marks**, used in every template below and produced by the scanner:
+
+| Mark | Meaning |
+|:--|:--|
+| `!` | Mechanical. No carve-out applies; the fix is delete-the-token. |
+| `?` | Countable, but a carve-out exists somewhere. Not a finding until one is ruled out. |
+| `-` | Tier 1B clarity edit. A wordiness fix, not evidence about anything. |
+
+Report the three buckets separately. Collapsing them is how a wordiness note ends up reading as an accusation.
+
 ### `detect`
 
-**1. Issues found.** Every hit with its location and the offending text quoted. Group by severity (P0 / P1 / P2) and label the evidence tier (F / S / V / Q). Keep Tier 1B clarity edits visually separate and say which they are — a wordiness fix is a writing suggestion, not evidence about who wrote the text.
+**1. Issues found.** Every hit with its location, its severity mark, and the offending text quoted. Group by severity (P0 / P1 / P2) and label the evidence tier (F / S / V / Q). Keep Tier 1B clarity edits in their own bucket and say which they are — a wordiness fix is a writing suggestion, not evidence about who wrote the text.
 
-**2. Assessment.** For each flag, whether it's a clear problem or a judgment call. Some patterns on the list are effective writing techniques: uniform paragraph length is a problem, a well-placed "however" isn't. Split definitely-fix from worth-a-second-look. If the text is clean, say so and stop.
+**2. Assessment.** For each flag, whether it's a clear problem or a judgment call. Some patterns on the list are effective writing techniques: uniform paragraph length is a problem, a well-placed "however" isn't. Split definitely-fix from worth-a-second-look. Log any escape from **When the pattern is the decision** next to its hit rather than dropping it. If the text is clean, say so and stop.
 
 No verdict. No score without findings. No probability.
 
@@ -142,6 +154,11 @@ What was checked before shipping this version.
 | Inherited ratios labeled as convention | Yes, `references/vocabulary.md` rule 5 |
 | Carve-outs preserved from upstream rather than compressed | Yes — over-flagging is the priority failure mode |
 | Authorship verdicts absent from every template | Yes |
+| Scanner fixture suite passes | `node scripts/scan-prose.test.cjs` → 23 passed |
+| Scanner expresses no verdict | Yes — `--json` emits `verdict: null`; exit codes are 0 (ran) and 2 (usage/IO), never a slop code |
+| Scanner preserves the protected regions | Asserted: blockquote, fenced code, table and frontmatter fixtures produce zero hits |
+| Tier 1B held out of every cluster and density signal | Asserted: wordiness-only fixtures land in `clarity`, never `review` |
+| Density-gated patterns require the documented absolute count | Asserted — a single marker in a short document stays a metric instead of extrapolating into a hit |
 
 Two detectors from the upstream lineage were **reverted** rather than ported, because no rule could spare their legitimate uses: narrated candor as a regex (a genuine conflict-of-interest disclosure reads identically), and structural wall-of-text (long single paragraphs are correct in several registers). Both survive here as judgment-only entries in `references/patterns.md`. That is the right outcome — a detector that can't respect its own carve-out should not ship.
 
@@ -151,7 +168,7 @@ Known upstream gap carried forward: the `load-bearing` construction carve-out mi
 
 ## Provenance
 
-Ten open skills and repositories, plus two research corpora, were read for this version. What each contributed:
+Ten open skills and repositories were read for this version, plus one whose architecture rather than its patterns was ported, plus two research corpora. What each contributed:
 
 | Source | Contribution |
 |:--|:--|
@@ -163,6 +180,7 @@ Ten open skills and repositories, plus two research corpora, were read for this 
 | `Aboudjem/humanizer-skill` | Paragraph-reshuffle immunity (P38) and the treadmill effect (P43) |
 | `blader/humanizer` | The "personality and soul" instruction — and, via an independent stress test, the humanizer-fingerprint failure that produced the never-inject list |
 | `brandonwise/humanizer`, `hardikpandya/stop-slop`, `jalaalrd/anti-ai-slop-writing`, `petergyang/no-ai-slop`, `realrossmanngroup/no_ai_slop_writing_rules` | Pattern coverage, phrase lists, and the wall-of-text and sycophancy entries |
+| `blahajcoding/no-slop` | **Architecture, not content** — it audits UI design, so none of its seven rules were ported. What came across: the executable half (rules that describe an audit but never run one degrade into advice), the judgement-call / tell severity split, leading each rule with a runnable test, and the escape hatch for a pattern that is a decision. One deliberate divergence: no-slop exits non-zero on a `SLOP` verdict, and this skill cannot, because a verdict is an authorship claim. The scanner therefore reports counts and exits 0 or 2 |
 
 Full citations for all research claims: `references/evidence.md`.
 

@@ -12,6 +12,26 @@ Three standing rules:
 - **Carve-outs outrank triggers.** If a carve-out applies, there is no finding. Don't log it as "flagged but excused" — that's how a report drifts into an accusation.
 - **Judgment-only entries are marked.** Some patterns were implemented as regexes upstream and reverted, because every rule tight enough to spare the carve-outs stopped matching the tell. Those are marked *judgment-only*, and you should not try to mechanize them.
 
+## Tests before patterns
+
+An entry tells you what a pattern looks like. A test tells you what to *run* on finished text, and a test produces a procedure instead of an impression. Run these in order; the first four decide whether anything later in the catalog applies at all.
+
+| Test | Run it | Separates |
+|:--|:--|:--|
+| **Carve-out first** | Is it a quotation, a term of art, house style, or the product's own tagline? | a finding from an escape — ask before logging, never after |
+| **Removal** | Delete the span. Does the reader lose anything? | REWORDABLE (sharpen it) from HOLLOW (flag it, never invent a claim) |
+| **Cluster count** | How many *categories* fired here, not how many hits | a style choice from a pattern. Three or more categories plus uniformity → rebuild, don't patch |
+| **Density** | Markers per 500 words, counted before any single flag | a word choice from a pattern. One "notably" in 2,000 is fine |
+| **Outline** | First sentence of every paragraph, read as a list | machine-shaped structure from a human one with gaps and jumps |
+| **Paragraph-reshuffle** | Swap two body paragraphs | an argument that builds from a list of points |
+| **Treadmill** | For each paragraph, name the one fact it contributes | advancement from restatement — you can cut 40–60% or you can't |
+| **Substitutability** | Could a competitor paste this sentence onto their site unchanged? | a claim from a template |
+| **Parallelism** | Read only the grammatical shape of each bullet, ignoring meaning | symmetry doing work from symmetry as decoration |
+| **Frame removal** | Cut the framing sentence, keep the claim | performed candor or insight from a disclosure that carries information |
+| **Read-aloud** | Say it out loud, or hand it to a TTS engine | natural unevenness from metronomic rhythm |
+
+The scanner (`scripts/scan-prose.cjs`) does the counting for Tier F, Tier V, Tier Q, and the format checks. These tests are the half it cannot run.
+
 ---
 
 # Tier S — structure and substance
