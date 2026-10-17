@@ -5,12 +5,11 @@ description: >
   Universal OSINT skill. Feed any seed (name, handle, email, domain, IP, phone, company, crypto
   address, image, or fragment) and get an intelligence dossier built on the ESRC method: extract
   micro-data, search a candidate pool by similarity, reason over a shortlist to select and verify a
-  match, then calibrate a confidence score. Covers search engine recon, username enumeration, breach
-  intelligence, social media, image geolocation and reverse search, people-search and corporate
-  registries, domain/IP recon, web archives, crypto tracing, dark web monitoring, OpSec detection,
-  entity graphs. Outputs a Markdown report bucketed by confidence
-  (CONFIRMED/PROBABLE/TENTATIVE/NOISE) with a coverage map, difficulty estimate, and explicit
-  abstentions; every finding spawns pivots until stopping criteria are met.
+  match, then calibrate a confidence score. Covers username enumeration, breach intelligence, social
+  media, image geolocation, people-search and corporate registries, domain/IP recon, web archives,
+  crypto tracing, dark web monitoring, entity graphs. Outputs a Markdown report bucketed by
+  confidence (CONFIRMED/PROBABLE/TENTATIVE/NOISE) with a coverage map, difficulty estimate, and
+  explicit abstentions; every finding spawns pivots until stopping criteria are met.
   Triggers: "OSINT [anything]", "investigate", "find everything on", "build a profile", "trace
   online", "who is", "background check", "digital footprint", "dossier on", "lookup [email/phone/
   username/domain/image]", "research [person/company]".
