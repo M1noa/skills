@@ -2,9 +2,9 @@
 
 where every skill in `~/skills` came from, and how to refresh it.
 
-**368 skills across 14 sources.** 2 have no traceable source.
+**369 skills across 14 sources.** all sources identified.
 
-built by walking the symlink targets in `~/skills`, then `~/.agents/.skill-lock.json`, then GitHub code search for the real directories.
+regenerate with `python3 gen-sources.py` after adding or removing skills.
 
 ## sources
 
@@ -15,7 +15,7 @@ built by walking the symlink targets in `~/skills`, then `~/.agents/.skill-lock.
 | [SnailSploit/claude-red](https://github.com/SnailSploit/claude-red) | 79 | `~/skills/.repos/claude-red` | `git -C ~/skills/.repos/claude-red pull` |
 | [google/mantis](https://github.com/google/mantis) | 13 | `-` | re-clone, not tracked locally |
 | [thelegendtubaguy/pi-ponytail](https://github.com/thelegendtubaguy/pi-ponytail) | 5 | `~/.pi/agent/npm/node_modules/pi-ponytail` | reinstall the pi-ponytail package |
-| [M1noa/skills](https://github.com/M1noa/skills) | 3 | `~/Documents/Projects/skills` | `git -C ~/Documents/Projects/skills pull` |
+| [M1noa/skills](https://github.com/M1noa/skills) | 4 | `~/Documents/Projects/skills` | `git -C ~/Documents/Projects/skills pull` |
 | [orchestra-research/ai-research-skills](https://github.com/orchestra-research/ai-research-skills) | 2 | `-` | re-clone, not tracked locally |
 | [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) | 2 | `-` | re-clone, not tracked locally |
 | [firecrawl/anydoc](https://github.com/firecrawl/anydoc) | 1 | `-` | re-clone, not tracked locally |
@@ -31,7 +31,7 @@ built by walking the symlink targets in `~/skills`, then `~/.agents/.skill-lock.
 # cloned repos: pulling is enough, ~/skills symlinks follow automatically
 git -C ~/skills/.repos/scientific-agent-skills pull
 git -C ~/skills/.repos/claude-red pull
-git -C ~/Documents/Projects/skills pull      # your own skills
+git -C ~/Documents/Projects/skills pull
 
 # pi-ponytail (5 skills) ships as an npm package
 npm --prefix ~/.pi/agent/npm update pi-ponytail
@@ -46,15 +46,6 @@ npm --prefix ~/.pi/agent/npm update pi-ponytail
 #   git clone --filter=blob:none --no-checkout https://github.com/nousresearch/hermes-agent $tmp/h
 #   git -C $tmp/h checkout c49fa88b~1 -- skills/github/github-auth
 ```
-
-## no source found
-
-These two have no traceable upstream. Searched GitHub code search, repo search, and every M1noa repo including private ones.
-
-| skill | what it is | why it's hard |
-|---|---|---|
-| `osint-ultimate` | 22-line OSINT dossier skill, version 2.0, no author or frontmatter metadata | too short to fingerprint, no unique strings that index. possibly LLM-generated or a gist. |
-| `chromium-browser` | drives Chrome via `browser_*` MCP tools | references an `OpenCode Browser extension` and `browser-client.mjs` that match nothing public. **no installed MCP provides `browser_list_profiles` / `browser_select_profile` / `browser_download_events`**, so this skill is inert on your setup. |
 
 ## upstream drift
 
@@ -261,6 +252,7 @@ These 12 are hermes-agent skills whose paths no longer exist. The lock file stil
 | `what-if-oracle` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/what-if-oracle` |
 | `zarr-python` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/zarr-python` |
 | `anti-slop` | M1noa/skills | `/Users/minoa/Documents/Projects/skills/skills/anti-slop` |
+| `osint-ultimate` | M1noa/skills | `/Users/minoa/Documents/Projects/skills/skills/osint-ultimate` |
 | `project-audit` | M1noa/skills | `/Users/minoa/Documents/Projects/skills/skills/project-audit` |
 | `security-audit` | M1noa/skills | `/Users/minoa/Documents/Projects/skills/skills/security-audit` |
 | `hallmark` | Nutlope/hallmark | `skills/hallmark/SKILL.md` |
