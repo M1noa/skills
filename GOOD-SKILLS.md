@@ -1,4 +1,11 @@
 # skill sources
+
+where every skill in `~/skills` came from, and how to refresh it.
+
+**369 skills across 14 sources.** all sources identified.
+
+regenerate with `python3 gen-sources.py` after adding or removing skills.
+
 ## sources
 
 | source | skills | local copy | update |
@@ -8,7 +15,7 @@
 | [SnailSploit/claude-red](https://github.com/SnailSploit/claude-red) | 79 | `~/skills/.repos/claude-red` | `git -C ~/skills/.repos/claude-red pull` |
 | [google/mantis](https://github.com/google/mantis) | 13 | `-` | re-clone, not tracked locally |
 | [thelegendtubaguy/pi-ponytail](https://github.com/thelegendtubaguy/pi-ponytail) | 5 | `~/.pi/agent/npm/node_modules/pi-ponytail` | reinstall the pi-ponytail package |
-| [M1noa/skills](https://github.com/M1noa/skills) | 3 | `~/Documents/Projects/skills` | `git -C ~/Documents/Projects/skills pull` |
+| [M1noa/skills](https://github.com/M1noa/skills) | 4 | `~/Documents/Projects/skills` | `git -C ~/Documents/Projects/skills pull` |
 | [orchestra-research/ai-research-skills](https://github.com/orchestra-research/ai-research-skills) | 2 | `-` | re-clone, not tracked locally |
 | [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) | 2 | `-` | re-clone, not tracked locally |
 | [firecrawl/anydoc](https://github.com/firecrawl/anydoc) | 1 | `-` | re-clone, not tracked locally |
@@ -17,6 +24,49 @@
 | [Nutlope/hallmark](https://github.com/Nutlope/hallmark) | 1 | `-` | re-clone, not tracked locally |
 | [Jakubantalik/Libraries.dev](https://github.com/Jakubantalik/Libraries.dev) | 1 | `-` | re-clone, not tracked locally |
 | [morluto/rea](https://github.com/morluto/rea) | 1 | `-` | re-clone, not tracked locally |
+
+## update
+
+```bash
+# cloned repos: pulling is enough, ~/skills symlinks follow automatically
+git -C ~/skills/.repos/scientific-agent-skills pull
+git -C ~/skills/.repos/claude-red pull
+git -C ~/Documents/Projects/skills pull
+
+# pi-ponytail (5 skills) ships as an npm package
+npm --prefix ~/.pi/agent/npm update pi-ponytail
+
+# everything else was copied in, not cloned. to refresh any of them:
+#   tmp=$(mktemp -d)
+#   git clone --depth 1 --filter=blob:none --sparse <repo> $tmp/r
+#   git -C $tmp/r sparse-checkout set <path>
+#   cp -R $tmp/r/<path> ~/skills/<skill>
+
+# to recover a skill removed upstream, fetch it from the commit before the removal:
+#   git clone --filter=blob:none --no-checkout https://github.com/nousresearch/hermes-agent $tmp/h
+#   git -C $tmp/h checkout c49fa88b~1 -- skills/github/github-auth
+```
+
+## upstream drift
+
+These 12 are hermes-agent skills whose paths no longer exist. The lock file still claims the old paths, so a naive re-install would fail. All were changed in `c49fa88b` (2026-08-30, "shipped-set slim"), reachable with `c49fa88b~1`.
+
+| skill | current status upstream |
+|---|---|
+| `github-auth` | merged into `skills/software-development/github` (git history at `c49fa88b`) |
+| `github-code-review` | merged into `skills/software-development/github/references/code-review.md` |
+| `github-issue-to-pr` | merged into `skills/software-development/github/references/issue-to-pr.md` |
+| `github-issues` | merged into `skills/software-development/github/references/issues.md` |
+| `github-pr-workflow` | merged into `skills/software-development/github/references/pr-workflow.md` |
+| `github-repo-management` | merged into `skills/software-development/github` (git history at `c49fa88b`) |
+| `merge-reconciler` | renamed -> `optional-skills/autonomous-ai-agents/agent-merge-conflict-arbiter/` |
+| `nano-pdf` | merged into `skills/productivity/pdf` as a reference + script |
+| `ocr-and-documents` | merged into `skills/productivity/pdf` |
+| `plan` | dropped from HEAD. git history at `c49fa88b` |
+| `session-librarian` | DELETED upstream. never maintainer-intended. git history at `c49fa88b` only |
+| `touchdesigner-mcp` | moved to the optional-skills hub, then dropped. git history at `c49fa88b` only |
+
+`camoufox/` and `software-development/` are category dirs, not skills (`software-development/hermes-agent-skill-authoring` is the skill).
 
 ## full inventory
 
@@ -202,6 +252,7 @@
 | `what-if-oracle` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/what-if-oracle` |
 | `zarr-python` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/zarr-python` |
 | `anti-slop` | M1noa/skills | `/Users/minoa/Documents/Projects/skills/skills/anti-slop` |
+| `osint-ultimate` | M1noa/skills | `/Users/minoa/Documents/Projects/skills/skills/osint-ultimate` |
 | `project-audit` | M1noa/skills | `/Users/minoa/Documents/Projects/skills/skills/project-audit` |
 | `security-audit` | M1noa/skills | `/Users/minoa/Documents/Projects/skills/skills/security-audit` |
 | `hallmark` | Nutlope/hallmark | `skills/hallmark/SKILL.md` |

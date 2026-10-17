@@ -9,7 +9,7 @@ import json
 import os
 
 SK = os.path.expanduser("~/skills")
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "SOURCES.md")
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "GOOD-SKILLS.md")
 LOCK = os.path.expanduser("~/.agents/.skill-lock.json")
 
 REPO_MAP = {
