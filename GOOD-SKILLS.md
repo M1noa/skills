@@ -2,23 +2,23 @@
 
 where every skill in `~/skills` came from, and how to refresh it.
 
-**156 skills across 9 sources.** all sources identified.
+**146 skills across 9 sources.** all sources identified.
 
 regenerate with `python3 gen-sources.py` after adding or removing skills.
 
 ## sources
 
-| source | skills | local copy | update |
+| source | skills | local copy | mode |
 |---|---:|---|---|
-| [SnailSploit/claude-red](https://github.com/SnailSploit/claude-red) | 79 | `~/skills/.repos/claude-red` | `git -C ~/skills/.repos/claude-red pull` |
-| [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 33 | `~/skills/.repos/scientific-agent-skills` | `git -C ~/skills/.repos/scientific-agent-skills pull` |
-| [nousresearch/hermes-agent](https://github.com/nousresearch/hermes-agent) | 30 | `-` | re-clone, not tracked locally |
-| [thelegendtubaguy/pi-ponytail](https://github.com/thelegendtubaguy/pi-ponytail) | 5 | `~/.pi/agent/npm/node_modules/pi-ponytail` | reinstall the pi-ponytail package |
-| [M1noa/skills](https://github.com/M1noa/skills) | 4 | `~/Documents/Projects/skills` | `git -C ~/Documents/Projects/skills pull` |
-| [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) | 2 | `-` | re-clone, not tracked locally |
-| [Nutlope/hallmark](https://github.com/Nutlope/hallmark) | 1 | `-` | re-clone, not tracked locally |
-| [Jakubantalik/Libraries.dev](https://github.com/Jakubantalik/Libraries.dev) | 1 | `-` | re-clone, not tracked locally |
-| [morluto/rea](https://github.com/morluto/rea) | 1 | `-` | re-clone, not tracked locally |
+| [SnailSploit/claude-red](https://github.com/SnailSploit/claude-red) | 79 | `~/skills/.repos/claude-red` | cloned |
+| [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 33 | `~/skills/.repos/scientific-agent-skills` | cloned |
+| [nousresearch/hermes-agent](https://github.com/nousresearch/hermes-agent) | 20 | `~/skills/.repos/hermes-agent` | copy |
+| [thelegendtubaguy/pi-ponytail](https://github.com/thelegendtubaguy/pi-ponytail) | 5 | `~/.pi/agent/npm/node_modules/pi-ponytail` | npm |
+| [M1noa/skills](https://github.com/M1noa/skills) | 4 | `~/Documents/Projects/skills` | cloned |
+| [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) | 2 | `~/skills/.repos/modern-web-guidance` | copy |
+| [Nutlope/hallmark](https://github.com/Nutlope/hallmark) | 1 | `~/skills/.repos/hallmark` | copy |
+| [Jakubantalik/Libraries.dev](https://github.com/Jakubantalik/Libraries.dev) | 1 | `~/skills/.repos/libraries.dev` | copy |
+| [morluto/rea](https://github.com/morluto/rea) | 1 | `~/skills/.repos/rea` | copy |
 
 ## update
 
@@ -38,7 +38,7 @@ A skill updates one of two ways, decided by how it is installed locally:
 | symlink into a local clone | `git pull` on the clone, nothing else | the four cloned sources |
 | real directory | refetched from upstream and copied over | hermes, modern-web-guidance, hallmark, Libraries.dev, rea |
 
-Re-clone into `~/skills/.repos/<name>` is cached, so the second run only fetches. To recover a skill dropped upstream, check out the commit before the removal:
+Each source is cloned once into `~/skills/.repos/<name>` and kept, so later runs only fetch. To recover a skill dropped upstream, check out the commit before the removal:
 
 ```bash
 git -C ~/skills/.repos/hermes-agent log --oneline -- skills/github/github-auth
@@ -206,15 +206,9 @@ A further six moved without being renamed, and are still installed. The lock fil
 | `arxiv` | nousresearch/hermes-agent | `skills/research/arxiv` |
 | `blocked-page-recovery` | nousresearch/hermes-agent | `skills/web/blocked-page-recovery` |
 | `claude-code` | nousresearch/hermes-agent | `skills/autonomous-ai-agents/claude-code` |
-| `codebase-inspection` | nousresearch/hermes-agent | `skills/software-development/codebase-inspection` |
-| `computer-use` | nousresearch/hermes-agent | `skills/autonomous-ai-agents/computer-use` |
 | `docx` | nousresearch/hermes-agent | `skills/productivity/docx` |
-| `dogfood` | nousresearch/hermes-agent | `skills/software-development/dogfood` |
 | `excalidraw` | nousresearch/hermes-agent | `optional-skills/creative/excalidraw` |
-| `findmy` | nousresearch/hermes-agent | `skills/apple/findmy` |
-| `gif-search` | nousresearch/hermes-agent | `skills/media/gif-search` |
 | `grounded-citations` | nousresearch/hermes-agent | `skills/research/grounded-citations` |
-| `himalaya` | nousresearch/hermes-agent | `skills/email/himalaya` |
 | `huggingface-hub` | nousresearch/hermes-agent | `optional-skills/mlops/models/huggingface-hub` |
 | `llama-cpp` | nousresearch/hermes-agent | `optional-skills/mlops/inference/llama-cpp` |
 | `maps` | nousresearch/hermes-agent | `skills/productivity/maps` |
@@ -224,14 +218,10 @@ A further six moved without being renamed, and are still installed. The lock fil
 | `pdf` | nousresearch/hermes-agent | `skills/productivity/pdf` |
 | `powerpoint` | nousresearch/hermes-agent | `skills/productivity/powerpoint` |
 | `python-debugpy` | nousresearch/hermes-agent | `skills/software-development/python-debugpy` |
-| `requesting-code-review` | nousresearch/hermes-agent | `skills/software-development/requesting-code-review` |
 | `research-paper-writing` | nousresearch/hermes-agent | `optional-skills/research/research-paper-writing` |
-| `simplify-code` | nousresearch/hermes-agent | `skills/software-development/simplify-code` |
-| `spike` | nousresearch/hermes-agent | `skills/software-development/spike` |
 | `systematic-debugging` | nousresearch/hermes-agent | `skills/software-development/systematic-debugging` |
 | `test-driven-development` | nousresearch/hermes-agent | `skills/software-development/test-driven-development` |
 | `xlsx` | nousresearch/hermes-agent | `skills/productivity/xlsx` |
-| `youtube-content` | nousresearch/hermes-agent | `skills/media/youtube-content` |
 | `ponytail` | thelegendtubaguy/pi-ponytail | `skills/ponytail` |
 | `ponytail-audit` | thelegendtubaguy/pi-ponytail | `skills/ponytail-audit` |
 | `ponytail-debt` | thelegendtubaguy/pi-ponytail | `skills/ponytail-debt` |

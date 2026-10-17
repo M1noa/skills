@@ -122,6 +122,14 @@ def registry(mapping):
     return len(rows)
 
 
+def local_copy(repo):
+    """where the local copy of a source lives, and how it got there."""
+    if repo in MANAGED:
+        return MANAGED[repo]
+    leaf = repo.rstrip("/").split("/")[-1].replace(".git", "").lower()
+    return ("copy", "~/skills/.repos/%s" % leaf)
+
+
 def render(mapping, unresolved):
     by_repo = collections.defaultdict(list)
     for name, v in mapping.items():
@@ -140,16 +148,15 @@ def render(mapping, unresolved):
         "",
         "## sources",
         "",
-        "| source | skills | local copy | update |",
+        "| source | skills | local copy | mode |",
         "|---|---:|---|---|",
     ]
     for repo, names in sorted(by_repo.items(), key=lambda kv: -len(kv[1])):
-        mode, where = MANAGED.get(repo, ("copy", "-"))
-        how = {
-            "cloned": "`git -C %s pull`" % where,
-            "npm": "reinstall the pi-ponytail package",
-        }.get(mode, "re-clone, not tracked locally")
-        o.append("| [%s](%s) | %d | `%s` | %s |" % (repo.replace("https://github.com/", ""), repo, len(names), where, how))
+        mode, where = local_copy(repo)
+        o.append(
+            "| [%s](%s) | %d | `%s` | %s |"
+            % (repo.replace("https://github.com/", ""), repo, len(names), where, mode)
+        )
 
     o += [
         "",
