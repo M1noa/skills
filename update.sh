@@ -89,18 +89,22 @@ fetch() {  # url -> the clone at working_tree(url), pulled up to date
     there="$(git -C "$dir" rev-parse "$remote_head" 2>/dev/null || echo "$head")"
   else
     git -C "$dir" fetch --quiet origin 2>/dev/null
-    if git -C "$dir" merge --ff-only --quiet "$remote_head" 2>/dev/null; then
-      there="$(git -C "$dir" rev-parse HEAD)"
-    else
+    if ! git -C "$dir" merge --ff-only --quiet "$remote_head" 2>/dev/null; then
       echo "  ! cannot fast-forward onto $remote_head, dirty or diverged tree"
       return 1
     fi
+    # report against the remote head, not the (now moved) local HEAD, so a real
+    # run and --dry-run say the same thing
+    there="$(git -C "$dir" rev-parse "$remote_head")"
   fi
 
+  count="$(git -C "$dir" rev-list --count "$head..$there" 2>/dev/null || echo '?')"
   if [[ "$head" == "$there" ]]; then
     echo "  current at ${head:0:7}"
+  elif [[ "$count" == "0" ]]; then
+    # a tree we author ourselves, ahead of its own remote because we never push
+    echo "  ahead of $remote_head by $(git -C "$dir" rev-list --count "$there..$head" 2>/dev/null) commit(s), nothing to pull"
   else
-    count="$(git -C "$dir" rev-list --count "$head..$there" 2>/dev/null || echo '?')"
     echo "  +$count commit(s) ${head:0:7} -> ${there:0:7}  $(git -C "$dir" log -1 --format=%s "$there" 2>/dev/null)"
   fi
 }
