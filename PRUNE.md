@@ -157,8 +157,8 @@ Nothing is deleted until you say go.
 - [ ] `airtable` — SaaS record CRUD; overlaps box/notion for a use case you do not have _(removal)_
 - [ ] `box` — enterprise cloud-file sharing API _(removal)_
 - [ ] `convert-documents-to-markdown` — 14-line stub; markitdown (kept) and `pdf` already do this _(removal)_
-- [ ] `findmy` — Apple Find My device tracking via AppleScript and screenshots _(removal)_
-- [ ] `gif-search` — Tenor GIF search via curl _(removal)_
+- [x] `findmy` — Apple Find My device tracking via AppleScript and screenshots _(removal)_
+- [x] `gif-search` — Tenor GIF search via curl _(removal)_
 - [ ] `humanizer` — duplicate of your own `anti-slop`, which is 6x larger and has the full pattern catalog _(removal)_
 - [ ] `inspecting-hermes-desktop-dom` — debugs the Hermes desktop app you do not have installed _(removal)_
 - [ ] `nano-pdf` — merged upstream into productivity/pdf; your `pdf` skill covers PDF text editing _(removal)_
@@ -179,7 +179,7 @@ Nothing is deleted until you say go.
 - [ ] `codex` — delegates to OpenAI Codex CLI; you run Claude Code and OpenCode _(maybe)_
 - [ ] `comfyui` — diffusion image/video/audio workflows; needs a ComfyUI backend _(maybe)_
 - [ ] `competitor-news-monitor` — one of a 3-skill "watch a thing and digest it" cluster _(maybe)_
-- [ ] `computer-use` — drives the desktop via accessibility APIs; broad and rarely needed from a CLI agent _(maybe)_
+- [x] `computer-use` — drives the desktop via accessibility APIs; broad and rarely needed from a CLI agent _(maybe)_
 - [ ] `design-md` — Google DESIGN.md token authoring; narrow, design cluster _(maybe)_
 - [ ] `document-to-action-items` — same cluster: documents to cited obligations _(maybe)_
 - [ ] `email-inbox-triage` — one of a 5-skill "turn notes into tasks" cluster _(maybe)_
@@ -196,7 +196,7 @@ Nothing is deleted until you say go.
 - [ ] `imessage` — iMessage/SMS via the imsg CLI; personal use only _(maybe)_
 - [ ] `llm-wiki` — Hermes-specific knowledge-base workflow tied to its own layout _(maybe)_
 - [ ] `manim-video` — Manim math-animation pipeline; heavily overlaps p5js/ascii-video as creative output _(maybe)_
-- [ ] `maps` — geocoding and routing via OSM/OSRM _(maybe)_
+- [x] `maps` — geocoding and routing via OSM/OSRM _(maybe)_
 - [ ] `meeting-action-items` — same cluster: meeting notes to owners and tickets _(maybe)_
 - [ ] `merge-reconciler` — renamed upstream; only meaningful inside a Hermes multi-agent merge flow _(maybe)_
 - [ ] `p5js` — creative-coding pipeline; same family _(maybe)_
@@ -204,7 +204,7 @@ Nothing is deleted until you say go.
 - [ ] `popular-web-designs` — 54 design systems as HTML/CSS; hallmark covers design work _(maybe)_
 - [ ] `pretext` — DOM-free text-layout browser demos; same creative family _(maybe)_
 - [ ] `product-price-monitor` — same cluster: watch a price, alert on target _(maybe)_
-- [ ] `research-paper-writing` — NeurIPS/ICML submission pipeline; 1.4MB for a PhD-level workflow _(maybe)_
+- [x] `research-paper-writing` — NeurIPS/ICML submission pipeline; 1.4MB for a PhD-level workflow _(maybe)_
 - [ ] `serving-llms-vllm` — vLLM serving; needs a GPU box _(maybe)_
 - [ ] `session-librarian` — deleted upstream; organizes Hermes session files _(maybe)_
 - [ ] `sketch` — throwaway HTML mockups; you already have hallmark and sketch is 2-3 variants only _(maybe)_
@@ -213,34 +213,34 @@ Nothing is deleted until you say go.
 - [ ] `weekly-review-planning` — same cluster: weekly reset over calendar and inbox _(maybe)_
 - [ ] `weights-and-biases` — W&B experiment tracking; needs an account and active training runs _(maybe)_
 - [ ] `xurl` — X/Twitter API CLI; social posting _(maybe)_
-- [ ] `youtube-content` — YouTube transcripts to summaries and threads _(maybe)_
+- [x] `youtube-content` — YouTube transcripts to summaries and threads _(maybe)_
 
 ## SnailSploit/claude-red (24 candidates, 4 high confidence)
 
-- [ ] `offensive-api-abuse` — business-logic API abuse; offensive-business-logic and offensive-api-security cover it _(removal)_
-- [ ] `offensive-osint-methodology` — near-identical size and scope to offensive-osint; same methodology twice _(removal)_
-- [ ] `offensive-phishing` — phishing is a subset of offensive-social-engineering, which is larger _(removal)_
-- [ ] `offensive-toctou` — TOCTOU is a race condition; offensive-race-condition is 2x larger and covers it _(removal)_
-- [ ] `offensive-basic-exploitation` — labelled only "Week 5 exploit development curriculum"; unusable description _(maybe)_
-- [ ] `offensive-bluetooth-ble` — BLE GATT attacks; needs a BLE radio _(maybe)_
-- [ ] `offensive-bluetooth-classic` — Bluetooth BR/EDR attacks; needs a Bluetooth radio _(maybe)_
-- [ ] `offensive-bug-identification` — source-review and black-box methodology; your security-audit covers this ground _(maybe)_
-- [ ] `offensive-crash-analysis` — labelled only "Week 4 exploit development curriculum"; a course chapter _(maybe)_
-- [ ] `offensive-deauth-disassoc` — deauth attacks; a step inside nearly every other wireless skill here _(maybe)_
-- [ ] `offensive-evil-twin` — rogue AP via hostapd-mana; needs an adapter and hostapd _(maybe)_
-- [ ] `offensive-exploit-dev-course` — the syllabus for the three week-chapters above; index with no standalone use _(maybe)_
-- [ ] `offensive-fuzzing-course` — labelled only "Week 2 of the exploit development curriculum"; a course chapter _(maybe)_
-- [ ] `offensive-krack-fragattacks` — two fixed 2017-2020 CVEs; historical, no live targets _(maybe)_
-- [ ] `offensive-lorawan-sub-ghz` — LoRaWAN/sub-GHz attacks; needs SDR hardware _(maybe)_
-- [ ] `offensive-mitigations` — cross-platform mitigation catalog; heavily overlapped by offensive-windows-mitigations _(maybe)_
-- [ ] `offensive-reporting` — report writing is a phase inside offensive-advanced-redteam, and your security-audit covers it _(maybe)_
-- [ ] `offensive-wifi-recon` — recon is a phase of offensive-wifi, which is larger _(maybe)_
-- [ ] `offensive-wpa-enterprise` — 802.1X/EAP attacks; subset of offensive-wifi; needs an adapter plus a supplicant _(maybe)_
-- [ ] `offensive-wpa2-psk` — WPA2-PSK attacks; subset of offensive-wifi; needs a monitor-mode adapter _(maybe)_
-- [ ] `offensive-wpa3-sae` — WPA3/SAE attacks; subset of offensive-wifi; needs a monitor-mode adapter _(maybe)_
-- [ ] `offensive-wps` — WPS Pixie Dust; subset of offensive-wifi; needs an adapter _(maybe)_
-- [ ] `offensive-z-wave` — Z-Wave attacks; needs an SDR and Z-Wave hardware _(maybe)_
-- [ ] `offensive-zigbee-thread-matter` — 802.15.4 mesh attacks; needs a CC2531 or similar _(maybe)_
+- [x] `offensive-api-abuse` — business-logic API abuse; offensive-business-logic and offensive-api-security cover it _(removal)_
+- [x] `offensive-osint-methodology` — near-identical size and scope to offensive-osint; same methodology twice _(removal)_
+- [x] `offensive-phishing` — phishing is a subset of offensive-social-engineering, which is larger _(removal)_
+- [x] `offensive-toctou` — TOCTOU is a race condition; offensive-race-condition is 2x larger and covers it _(removal)_
+- [x] `offensive-basic-exploitation` — labelled only "Week 5 exploit development curriculum"; unusable description _(maybe)_
+- [x] `offensive-bluetooth-ble` — BLE GATT attacks; needs a BLE radio _(maybe)_
+- [x] `offensive-bluetooth-classic` — Bluetooth BR/EDR attacks; needs a Bluetooth radio _(maybe)_
+- [x] `offensive-bug-identification` — source-review and black-box methodology; your security-audit covers this ground _(maybe)_
+- [x] `offensive-crash-analysis` — labelled only "Week 4 exploit development curriculum"; a course chapter _(maybe)_
+- [x] `offensive-deauth-disassoc` — deauth attacks; a step inside nearly every other wireless skill here _(maybe)_
+- [x] `offensive-evil-twin` — rogue AP via hostapd-mana; needs an adapter and hostapd _(maybe)_
+- [x] `offensive-exploit-dev-course` — the syllabus for the three week-chapters above; index with no standalone use _(maybe)_
+- [x] `offensive-fuzzing-course` — labelled only "Week 2 of the exploit development curriculum"; a course chapter _(maybe)_
+- [x] `offensive-krack-fragattacks` — two fixed 2017-2020 CVEs; historical, no live targets _(maybe)_
+- [x] `offensive-lorawan-sub-ghz` — LoRaWAN/sub-GHz attacks; needs SDR hardware _(maybe)_
+- [x] `offensive-mitigations` — cross-platform mitigation catalog; heavily overlapped by offensive-windows-mitigations _(maybe)_
+- [x] `offensive-reporting` — report writing is a phase inside offensive-advanced-redteam, and your security-audit covers it _(maybe)_
+- [x] `offensive-wifi-recon` — recon is a phase of offensive-wifi, which is larger _(maybe)_
+- [x] `offensive-wpa-enterprise` — 802.1X/EAP attacks; subset of offensive-wifi; needs an adapter plus a supplicant _(maybe)_
+- [x] `offensive-wpa2-psk` — WPA2-PSK attacks; subset of offensive-wifi; needs a monitor-mode adapter _(maybe)_
+- [x] `offensive-wpa3-sae` — WPA3/SAE attacks; subset of offensive-wifi; needs a monitor-mode adapter _(maybe)_
+- [x] `offensive-wps` — WPS Pixie Dust; subset of offensive-wifi; needs an adapter _(maybe)_
+- [x] `offensive-z-wave` — Z-Wave attacks; needs an SDR and Z-Wave hardware _(maybe)_
+- [x] `offensive-zigbee-thread-matter` — 802.15.4 mesh attacks; needs a CC2531 or similar _(maybe)_
 
 ## google/mantis (13 candidates, 0 high confidence)
 

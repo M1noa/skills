@@ -2,7 +2,7 @@
 
 where every skill in `~/skills` came from, and how to refresh it.
 
-**369 skills across 14 sources.** all sources identified.
+**156 skills across 9 sources.** all sources identified.
 
 regenerate with `python3 gen-sources.py` after adding or removing skills.
 
@@ -10,17 +10,12 @@ regenerate with `python3 gen-sources.py` after adding or removing skills.
 
 | source | skills | local copy | update |
 |---|---:|---|---|
-| [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 176 | `~/skills/.repos/scientific-agent-skills` | `git -C ~/skills/.repos/scientific-agent-skills pull` |
-| [nousresearch/hermes-agent](https://github.com/nousresearch/hermes-agent) | 82 | `-` | re-clone, not tracked locally |
 | [SnailSploit/claude-red](https://github.com/SnailSploit/claude-red) | 79 | `~/skills/.repos/claude-red` | `git -C ~/skills/.repos/claude-red pull` |
-| [google/mantis](https://github.com/google/mantis) | 13 | `-` | re-clone, not tracked locally |
+| [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 33 | `~/skills/.repos/scientific-agent-skills` | `git -C ~/skills/.repos/scientific-agent-skills pull` |
+| [nousresearch/hermes-agent](https://github.com/nousresearch/hermes-agent) | 30 | `-` | re-clone, not tracked locally |
 | [thelegendtubaguy/pi-ponytail](https://github.com/thelegendtubaguy/pi-ponytail) | 5 | `~/.pi/agent/npm/node_modules/pi-ponytail` | reinstall the pi-ponytail package |
 | [M1noa/skills](https://github.com/M1noa/skills) | 4 | `~/Documents/Projects/skills` | `git -C ~/Documents/Projects/skills pull` |
-| [orchestra-research/ai-research-skills](https://github.com/orchestra-research/ai-research-skills) | 2 | `-` | re-clone, not tracked locally |
 | [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) | 2 | `-` | re-clone, not tracked locally |
-| [firecrawl/anydoc](https://github.com/firecrawl/anydoc) | 1 | `-` | re-clone, not tracked locally |
-| [vercel-labs/skills](https://github.com/vercel-labs/skills) | 1 | `-` | re-clone, not tracked locally |
-| [franalgaba/grimoire](https://github.com/franalgaba/grimoire) | 1 | `-` | re-clone, not tracked locally |
 | [Nutlope/hallmark](https://github.com/Nutlope/hallmark) | 1 | `-` | re-clone, not tracked locally |
 | [Jakubantalik/Libraries.dev](https://github.com/Jakubantalik/Libraries.dev) | 1 | `-` | re-clone, not tracked locally |
 | [morluto/rea](https://github.com/morluto/rea) | 1 | `-` | re-clone, not tracked locally |
@@ -75,158 +70,26 @@ These 12 are hermes-agent skills whose paths no longer exist. The lock file stil
 | `chrome-extensions` | GoogleChrome/modern-web-guidance | `skills/chrome-extensions/SKILL.md` |
 | `modern-web-guidance` | GoogleChrome/modern-web-guidance | `skills/modern-web-guidance/SKILL.md` |
 | `libraries-dev` | Jakubantalik/Libraries.dev | `skills/libraries-dev/SKILL.md` |
-| `13c-metabolic-flux` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/13c-metabolic-flux` |
-| `adaptyv` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/adaptyv` |
 | `aeon` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/aeon` |
-| `alphagenome` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/alphagenome` |
-| `analytical-method-validation` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/analytical-method-validation` |
-| `anndata` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/anndata` |
-| `arbor` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/arbor` |
-| `arboreto` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/arboreto` |
-| `astropy` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/astropy` |
-| `autoskill` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/autoskill` |
-| `benchling-integration` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/benchling-integration` |
-| `bgpt-paper-search` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/bgpt-paper-search` |
-| `bids` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/bids` |
-| `biopython` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/biopython` |
-| `bioservices` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/bioservices` |
-| `bulk-rnaseq` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/bulk-rnaseq` |
-| `cantera` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/cantera` |
-| `cellprofiler` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/cellprofiler` |
-| `cellxgene-census` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/cellxgene-census` |
-| `cirq` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/cirq` |
-| `citation-management` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/citation-management` |
-| `clinical-decision-support` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/clinical-decision-support` |
-| `clinical-reports` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/clinical-reports` |
-| `cobrapy` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/cobrapy` |
-| `consciousness-council` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/consciousness-council` |
 | `dask` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/dask` |
 | `database-lookup` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/database-lookup` |
-| `datalad` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/datalad` |
-| `datamol` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/datamol` |
-| `deepchem` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/deepchem` |
-| `deepspot-m` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/deepspot-m` |
-| `deeptools` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/deeptools` |
-| `depmap` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/depmap` |
-| `dhdna-profiler` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/dhdna-profiler` |
-| `diffdock` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/diffdock` |
-| `dnanexus-integration` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/dnanexus-integration` |
-| `esm` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/esm` |
-| `etetoolkit` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/etetoolkit` |
-| `exa-search` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/exa-search` |
-| `experimental-design` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/experimental-design` |
 | `exploratory-data-analysis` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/exploratory-data-analysis` |
-| `fictiv` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/fictiv` |
-| `flowio` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/flowio` |
-| `flowkit` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/flowkit` |
-| `fluidsim` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/fluidsim` |
-| `folklore-variant-evidence` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/folklore-variant-evidence` |
 | `generate-image` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/generate-image` |
-| `geniml` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/geniml` |
-| `genomic-coordinates` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/genomic-coordinates` |
-| `genomic-intelligence` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/genomic-intelligence` |
-| `geomaster` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/geomaster` |
 | `geopandas` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/geopandas` |
 | `get-available-resources` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/get-available-resources` |
-| `gget` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/gget` |
-| `ginkgo-cloud-lab` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/ginkgo-cloud-lab` |
-| `glycoengineering` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/glycoengineering` |
-| `gtars` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/gtars` |
-| `histolab` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/histolab` |
-| `hugging-science` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/hugging-science` |
-| `hypogenic` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/hypogenic` |
-| `hypothesis-generation` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/hypothesis-generation` |
-| `imaging-data-commons` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/imaging-data-commons` |
 | `infographics` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/infographics` |
-| `iso-standards-readiness` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/iso-standards-readiness` |
-| `lab-hardware-cad` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/lab-hardware-cad` |
-| `labarchive-integration` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/labarchive-integration` |
-| `lamindb` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/lamindb` |
-| `latchbio-integration` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/latchbio-integration` |
-| `latex-posters` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/latex-posters` |
-| `liteparse` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/liteparse` |
-| `literature-review` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/literature-review` |
-| `mageck` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/mageck` |
-| `marine-carbonate-chemistry` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/marine-carbonate-chemistry` |
 | `markdown-mermaid-writing` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/markdown-mermaid-writing` |
-| `market-research-reports` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/market-research-reports` |
 | `markitdown` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/markitdown` |
-| `matchms` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/matchms` |
-| `matlab` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/matlab` |
 | `matplotlib` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/matplotlib` |
-| `medchem` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/medchem` |
-| `molecular-dynamics` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/molecular-dynamics` |
-| `molfeat` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/molfeat` |
-| `ncats-arax` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/ncats-arax` |
 | `networkx` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/networkx` |
-| `neurokit2` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/neurokit2` |
-| `neuropixels-analysis` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/neuropixels-analysis` |
-| `nextflow` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/nextflow` |
-| `nmrglue` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/nmrglue` |
-| `nwb-conversion` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/nwb-conversion` |
-| `omero-integration` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/omero-integration` |
-| `onekgpd` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/onekgpd` |
-| `ontology-term-resolution` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/ontology-term-resolution` |
 | `open-notebook` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/open-notebook` |
-| `openpiv` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/openpiv` |
-| `opentrons-integration` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/opentrons-integration` |
-| `optimize-for-gpu` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/optimize-for-gpu` |
-| `pacsomatic` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pacsomatic` |
-| `paper-lookup` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/paper-lookup` |
-| `paperclip` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/paperclip` |
-| `paperzilla` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/paperzilla` |
 | `parallel-web` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/parallel-web` |
-| `pathml` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pathml` |
-| `pathogen-variant-surveillance` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pathogen-variant-surveillance` |
-| `pathway-enrichment` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pathway-enrichment` |
-| `peer-review` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/peer-review` |
-| `pennylane` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pennylane` |
-| `phylogenetics` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/phylogenetics` |
 | `pi-agent` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pi-agent` |
-| `pkpd-modeling` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pkpd-modeling` |
 | `polars` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/polars` |
-| `polars-bio` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/polars-bio` |
-| `pptx-posters` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pptx-posters` |
-| `primekg` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/primekg` |
-| `primer-design` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/primer-design` |
-| `protocolsio-integration` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/protocolsio-integration` |
-| `pufferlib` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pufferlib` |
-| `pybamm` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pybamm` |
-| `pycalphad` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pycalphad` |
-| `pydeseq2` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pydeseq2` |
-| `pydicom` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pydicom` |
-| `pyhealth` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pyhealth` |
-| `pylabrobot` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pylabrobot` |
-| `pymatgen` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pymatgen` |
 | `pymc` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pymc` |
 | `pymoo` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pymoo` |
-| `pyopenms` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pyopenms` |
-| `pysam` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pysam` |
-| `pytdc` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pytdc` |
 | `pytorch-lightning` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pytorch-lightning` |
-| `pyzotero` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/pyzotero` |
-| `qiime2-amplicon` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/qiime2-amplicon` |
-| `qiskit` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/qiskit` |
-| `qutip` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/qutip` |
-| `rdkit` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/rdkit` |
-| `relion` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/relion` |
-| `relsa-severity-assessment` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/relsa-severity-assessment` |
-| `research-grants` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/research-grants` |
-| `research-lookup` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/research-lookup` |
-| `rowan` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/rowan` |
-| `scanpy` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/scanpy` |
-| `scholar-evaluation` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/scholar-evaluation` |
-| `scientific-brainstorming` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/scientific-brainstorming` |
-| `scientific-critical-thinking` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/scientific-critical-thinking` |
-| `scientific-schematics` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/scientific-schematics` |
-| `scientific-slides` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/scientific-slides` |
-| `scientific-visualization` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/scientific-visualization` |
-| `scientific-writing` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/scientific-writing` |
-| `scikit-bio` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/scikit-bio` |
 | `scikit-learn` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/scikit-learn` |
-| `scikit-survival` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/scikit-survival` |
-| `scvelo` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/scvelo` |
-| `scvi-tools` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/scvi-tools` |
 | `seaborn` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/seaborn` |
 | `shap` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/shap` |
 | `simpy` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/simpy` |
@@ -235,21 +98,10 @@ These 12 are hermes-agent skills whose paths no longer exist. The lock file stil
 | `statistical-power` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/statistical-power` |
 | `statsmodels` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/statsmodels` |
 | `sympy` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/sympy` |
-| `tamarind` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/tamarind` |
-| `tellurium` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/tellurium` |
-| `tiledbvcf` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/tiledbvcf` |
-| `timesfm-forecasting` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/timesfm-forecasting` |
 | `torch-geometric` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/torch-geometric` |
-| `torchdrug` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/torchdrug` |
 | `transformers` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/transformers` |
-| `treatment-plans` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/treatment-plans` |
 | `umap-learn` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/umap-learn` |
 | `uncertainty-and-units` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/uncertainty-and-units` |
-| `usfiscaldata` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/usfiscaldata` |
-| `vaex` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/vaex` |
-| `venue-templates` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/venue-templates` |
-| `waypoint-bio` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/waypoint-bio` |
-| `what-if-oracle` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/what-if-oracle` |
 | `zarr-python` | K-Dense-AI/scientific-agent-skills | `.repos/scientific-agent-skills/skills/zarr-python` |
 | `anti-slop` | M1noa/skills | `/Users/minoa/Documents/Projects/skills/skills/anti-slop` |
 | `osint-ultimate` | M1noa/skills | `/Users/minoa/Documents/Projects/skills/skills/osint-ultimate` |
@@ -335,109 +187,39 @@ These 12 are hermes-agent skills whose paths no longer exist. The lock file stil
 | `offensive-xxe` | SnailSploit/claude-red | `.repos/claude-red/Skills/web/offensive-xxe` |
 | `offensive-z-wave` | SnailSploit/claude-red | `.repos/claude-red/Skills/wireless/offensive-z-wave` |
 | `offensive-zigbee-thread-matter` | SnailSploit/claude-red | `.repos/claude-red/Skills/wireless/offensive-zigbee-thread-matter` |
-| `convert-documents-to-markdown` | firecrawl/anydoc | `skills/convert-documents-to-markdown/SKILL.md` |
-| `grimoire-polymarket` | franalgaba/grimoire | `skills/grimoire-polymarket/SKILL.md` |
-| `mantis-architecture` | google/mantis | `mantis-architecture/SKILL.md` |
-| `mantis-calibrate` | google/mantis | `mantis-calibrate/SKILL.md` |
-| `mantis-chain` | google/mantis | `mantis-chain/SKILL.md` |
-| `mantis-critic` | google/mantis | `mantis-critic/SKILL.md` |
-| `mantis-dedupe` | google/mantis | `mantis-dedupe/SKILL.md` |
-| `mantis-history` | google/mantis | `mantis-history/SKILL.md` |
-| `mantis-meta-agent` | google/mantis | `mantis-meta-agent/SKILL.md` |
-| `mantis-patch` | google/mantis | `mantis-patch/SKILL.md` |
-| `mantis-plan` | google/mantis | `mantis-plan/SKILL.md` |
-| `mantis-reproduce` | google/mantis | `mantis-reproduce/SKILL.md` |
-| `mantis-researcher` | google/mantis | `mantis-researcher/SKILL.md` |
-| `mantis-review` | google/mantis | `mantis-review/SKILL.md` |
-| `mantis-threat-model` | google/mantis | `mantis-threat-model/SKILL.md` |
 | `reverse-engineer-anything` | morluto/rea | `.agents/skills/reverse-engineer-anything/SKILL.md` |
-| `airtable` | nousresearch/hermes-agent | `skills/productivity/airtable/SKILL.md` |
-| `apple-notes` | nousresearch/hermes-agent | `skills/apple/apple-notes/SKILL.md` |
-| `apple-reminders` | nousresearch/hermes-agent | `skills/apple/apple-reminders/SKILL.md` |
 | `architecture-diagram` | nousresearch/hermes-agent | `skills/creative/architecture-diagram/SKILL.md` |
 | `arxiv` | nousresearch/hermes-agent | `skills/research/arxiv/SKILL.md` |
-| `ascii-art` | nousresearch/hermes-agent | `skills/creative/ascii-art/SKILL.md` |
-| `ascii-video` | nousresearch/hermes-agent | `skills/creative/ascii-video/SKILL.md` |
-| `baoyu-infographic` | nousresearch/hermes-agent | `skills/creative/baoyu-infographic/SKILL.md` |
 | `blocked-page-recovery` | nousresearch/hermes-agent | `skills/research/blocked-page-recovery/SKILL.md` |
-| `blogwatcher` | nousresearch/hermes-agent | `skills/research/blogwatcher/SKILL.md` |
-| `box` | nousresearch/hermes-agent | `skills/productivity/box/SKILL.md` |
 | `claude-code` | nousresearch/hermes-agent | `skills/autonomous-ai-agents/claude-code/SKILL.md` |
-| `claude-design` | nousresearch/hermes-agent | `skills/creative/claude-design/SKILL.md` |
 | `codebase-inspection` | nousresearch/hermes-agent | `skills/github/codebase-inspection/SKILL.md` |
-| `codex` | nousresearch/hermes-agent | `skills/autonomous-ai-agents/codex/SKILL.md` |
-| `comfyui` | nousresearch/hermes-agent | `skills/creative/comfyui/SKILL.md` |
-| `competitor-news-monitor` | nousresearch/hermes-agent | `skills/research/competitor-news-monitor/SKILL.md` |
 | `computer-use` | nousresearch/hermes-agent | `skills/autonomous-ai-agents/computer-use/SKILL.md` |
-| `design-md` | nousresearch/hermes-agent | `skills/creative/design-md/SKILL.md` |
-| `document-to-action-items` | nousresearch/hermes-agent | `skills/productivity/document-to-action-items/SKILL.md` |
 | `docx` | nousresearch/hermes-agent | `skills/productivity/docx/SKILL.md` |
 | `dogfood` | nousresearch/hermes-agent | `skills/software-development/dogfood/SKILL.md` |
-| `email-inbox-triage` | nousresearch/hermes-agent | `skills/email/email-inbox-triage/SKILL.md` |
-| `evaluating-llms-harness` | nousresearch/hermes-agent | `skills/mlops/evaluation/evaluating-llms-harness/SKILL.md` |
 | `excalidraw` | nousresearch/hermes-agent | `skills/creative/excalidraw/SKILL.md` |
 | `findmy` | nousresearch/hermes-agent | `skills/apple/findmy/SKILL.md` |
 | `gif-search` | nousresearch/hermes-agent | `skills/media/gif-search/SKILL.md` |
-| `github-auth` | nousresearch/hermes-agent | `skills/github/github-auth/SKILL.md` |
-| `github-code-review` | nousresearch/hermes-agent | `skills/github/github-code-review/SKILL.md` |
-| `github-issue-to-pr` | nousresearch/hermes-agent | `skills/github/github-issue-to-pr/SKILL.md` |
-| `github-issues` | nousresearch/hermes-agent | `skills/github/github-issues/SKILL.md` |
-| `github-pr-workflow` | nousresearch/hermes-agent | `skills/github/github-pr-workflow/SKILL.md` |
-| `github-repo-management` | nousresearch/hermes-agent | `skills/github/github-repo-management/SKILL.md` |
-| `google-workspace` | nousresearch/hermes-agent | `skills/productivity/google-workspace/SKILL.md` |
 | `grounded-citations` | nousresearch/hermes-agent | `skills/research/grounded-citations/SKILL.md` |
-| `hermes-agent` | nousresearch/hermes-agent | `skills/autonomous-ai-agents/hermes-agent/SKILL.md` |
-| `hermes-agent-skill-authoring` | nousresearch/hermes-agent | `skills/software-development/hermes-agent-skill-authoring/SKILL.md` |
 | `himalaya` | nousresearch/hermes-agent | `skills/email/himalaya/SKILL.md` |
 | `huggingface-hub` | nousresearch/hermes-agent | `skills/mlops/huggingface-hub/SKILL.md` |
-| `humanizer` | nousresearch/hermes-agent | `skills/creative/humanizer/SKILL.md` |
-| `imessage` | nousresearch/hermes-agent | `skills/apple/imessage/SKILL.md` |
-| `inspecting-hermes-desktop-dom` | nousresearch/hermes-agent | `skills/software-development/inspecting-hermes-desktop-dom/SKILL.md` |
 | `llama-cpp` | nousresearch/hermes-agent | `skills/mlops/inference/llama-cpp/SKILL.md` |
-| `llm-wiki` | nousresearch/hermes-agent | `skills/research/llm-wiki/SKILL.md` |
-| `manim-video` | nousresearch/hermes-agent | `skills/creative/manim-video/SKILL.md` |
 | `maps` | nousresearch/hermes-agent | `skills/productivity/maps/SKILL.md` |
-| `meeting-action-items` | nousresearch/hermes-agent | `skills/productivity/meeting-action-items/SKILL.md` |
-| `merge-reconciler` | nousresearch/hermes-agent | `skills/autonomous-ai-agents/merge-reconciler/SKILL.md` |
-| `nano-pdf` | nousresearch/hermes-agent | `skills/productivity/nano-pdf/SKILL.md` |
 | `node-inspect-debugger` | nousresearch/hermes-agent | `skills/software-development/node-inspect-debugger/SKILL.md` |
-| `notion` | nousresearch/hermes-agent | `skills/productivity/notion/SKILL.md` |
 | `obsidian` | nousresearch/hermes-agent | `skills/note-taking/obsidian/SKILL.md` |
-| `ocr-and-documents` | nousresearch/hermes-agent | `skills/productivity/ocr-and-documents/SKILL.md` |
 | `opencode` | nousresearch/hermes-agent | `skills/autonomous-ai-agents/opencode/SKILL.md` |
-| `openhue` | nousresearch/hermes-agent | `skills/smart-home/openhue/SKILL.md` |
-| `p5js` | nousresearch/hermes-agent | `skills/creative/p5js/SKILL.md` |
 | `pdf` | nousresearch/hermes-agent | `skills/productivity/pdf/SKILL.md` |
-| `plan` | nousresearch/hermes-agent | `skills/software-development/plan/SKILL.md` |
-| `popular-web-designs` | nousresearch/hermes-agent | `skills/creative/popular-web-designs/SKILL.md` |
 | `powerpoint` | nousresearch/hermes-agent | `skills/productivity/powerpoint/SKILL.md` |
-| `pretext` | nousresearch/hermes-agent | `skills/creative/pretext/SKILL.md` |
-| `product-price-monitor` | nousresearch/hermes-agent | `skills/productivity/product-price-monitor/SKILL.md` |
 | `python-debugpy` | nousresearch/hermes-agent | `skills/software-development/python-debugpy/SKILL.md` |
 | `requesting-code-review` | nousresearch/hermes-agent | `skills/software-development/requesting-code-review/SKILL.md` |
 | `research-paper-writing` | nousresearch/hermes-agent | `skills/research/research-paper-writing/SKILL.md` |
-| `sdlc-review` | nousresearch/hermes-agent | `skills/devops/sdlc-review/SKILL.md` |
-| `serving-llms-vllm` | nousresearch/hermes-agent | `skills/mlops/inference/serving-llms-vllm/SKILL.md` |
-| `session-librarian` | nousresearch/hermes-agent | `skills/productivity/session-librarian/SKILL.md` |
 | `simplify-code` | nousresearch/hermes-agent | `skills/software-development/simplify-code/SKILL.md` |
-| `sketch` | nousresearch/hermes-agent | `skills/creative/sketch/SKILL.md` |
-| `songsee` | nousresearch/hermes-agent | `skills/media/songsee/SKILL.md` |
-| `songwriting-and-ai-music` | nousresearch/hermes-agent | `skills/creative/songwriting-and-ai-music/SKILL.md` |
 | `spike` | nousresearch/hermes-agent | `skills/software-development/spike/SKILL.md` |
 | `systematic-debugging` | nousresearch/hermes-agent | `skills/software-development/systematic-debugging/SKILL.md` |
-| `teams-meeting-pipeline` | nousresearch/hermes-agent | `skills/productivity/teams-meeting-pipeline/SKILL.md` |
 | `test-driven-development` | nousresearch/hermes-agent | `skills/software-development/test-driven-development/SKILL.md` |
-| `touchdesigner-mcp` | nousresearch/hermes-agent | `skills/creative/touchdesigner-mcp/SKILL.md` |
-| `weekly-review-planning` | nousresearch/hermes-agent | `skills/productivity/weekly-review-planning/SKILL.md` |
-| `weights-and-biases` | nousresearch/hermes-agent | `skills/mlops/evaluation/weights-and-biases/SKILL.md` |
 | `xlsx` | nousresearch/hermes-agent | `skills/productivity/xlsx/SKILL.md` |
-| `xurl` | nousresearch/hermes-agent | `skills/social-media/xurl/SKILL.md` |
 | `youtube-content` | nousresearch/hermes-agent | `skills/media/youtube-content/SKILL.md` |
-| `audiocraft-audio-generation` | orchestra-research/ai-research-skills | `18-multimodal/audiocraft/SKILL.md` |
-| `segment-anything-model` | orchestra-research/ai-research-skills | `18-multimodal/segment-anything/SKILL.md` |
 | `ponytail` | thelegendtubaguy/pi-ponytail | `/Users/minoa/.pi/agent/npm/node_modules/pi-ponytail/skills/ponytail` |
 | `ponytail-audit` | thelegendtubaguy/pi-ponytail | `/Users/minoa/.pi/agent/npm/node_modules/pi-ponytail/skills/ponytail-audit` |
 | `ponytail-debt` | thelegendtubaguy/pi-ponytail | `/Users/minoa/.pi/agent/npm/node_modules/pi-ponytail/skills/ponytail-debt` |
 | `ponytail-help` | thelegendtubaguy/pi-ponytail | `/Users/minoa/.pi/agent/npm/node_modules/pi-ponytail/skills/ponytail-help` |
 | `ponytail-review` | thelegendtubaguy/pi-ponytail | `/Users/minoa/.pi/agent/npm/node_modules/pi-ponytail/skills/ponytail-review` |
-| `find-skills` | vercel-labs/skills | `skills/find-skills/SKILL.md` |
