@@ -12,6 +12,8 @@ agent skills for claude code and opencode. each dir under `skills/` is a standal
 | `skills/anti-slop` | prose audit: finds ai slop patterns and rewrites in a human voice. detect / rewrite / edit modes. |
 | `skills/osint-ultimate` | osint dossier from any seed: name, handle, email, domain, IP, phone, company, image. |
 | `skills/terminal-builder` | build, refactor, or review terminal software: TUIs, prompts, dashboards, REPLs, one-shot CLIs. use every terminal feature, require none. |
+| `skills/redweb` | full-permission external pentest of live domains: DNS TXT proof-of-control, consent grant, crt.name sweep, parallel subagent waves hunting criticals, live REPORT.md, evidence extraction to disk. |
+| `skills/redexec` | trust-first red-team audit of local artifacts: containment-tiered static/decompile spines (native, .NET/Java/Python, Electron, mobile MASTG), secret/URL harvesting, SCA + CVE batteries, handoff to redweb on live targets. |
 
 ## install
 
@@ -28,4 +30,4 @@ ln -s "$PWD/skills/security-audit" ~/.claude/skills/security-audit
 
 ## license
 
-security-audit: CC-BY-SA-4.0. project-audit, anti-slop, terminal-builder: MIT. osint-ultimate: no license declared.
+security-audit: CC-BY-SA-4.0. project-audit, anti-slop, terminal-builder: MIT. osint-ultimate: no license declared. redweb, redexec: CC-BY-SA-4.0.
