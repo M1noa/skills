@@ -1,6 +1,6 @@
 ---
 name: anti-slop
-description: "Audits prose for AI slop patterns (\"AI-isms\", \"AI tells\", \"slop\") and rewrites it in a specific human voice instead of the statistical-average voice models default to. Four evidence tiers: forensic copy-paste artifacts, structure and substance, vocabulary clusters, quantitative stylometry. Three modes (detect / rewrite / edit-in-place), five voice profiles, seven context profiles, domain routing for release notes, dev replies, postmortems, tickets, and technical articles. Use whenever writing, drafting, editing, or reviewing anything a person will read: blog posts, docs, READMEs, commit messages, PR descriptions, comments, emails, reports, essays, social posts, chat replies. Also trigger on \"humanize this\", \"make this sound human\", \"remove AI slop\", \"sounds robotic\", \"de-slop\", \"too much like ChatGPT\", \"audit this for AI patterns\", or any request to rewrite text so it doesn't read as machine-generated."
+description: "Audits prose for AI slop patterns (\"AI-isms\", \"AI tells\", \"slop\") and rewrites it in a specific human voice instead of the statistical-average voice models default to. Also checks the draft for knowledge it assumes the reader has: unexplained jargon, unnamed mechanisms, context that only existed in the writer's head. Four evidence tiers: forensic copy-paste artifacts, structure and substance, vocabulary clusters, quantitative stylometry. Three modes (detect / rewrite / edit-in-place), five voice profiles, seven context profiles, domain routing for release notes, dev replies, postmortems, tickets, and technical articles. Use whenever writing, drafting, editing, or reviewing anything a person will read: blog posts, docs, READMEs, commit messages, PR descriptions, comments, emails, reports, essays, social posts, chat replies. Also trigger on \"humanize this\", \"make this sound human\", \"remove AI slop\", \"sounds robotic\", \"de-slop\", \"too much like ChatGPT\", \"audit this for AI patterns\", or any request to rewrite text so it doesn't read as machine-generated."
 version: 2.0.0
 license: MIT
 platforms: [linux, macos, windows]
@@ -17,6 +17,14 @@ Slop is writing that has been smoothed until it stops carrying information. This
 **Never output an authorship verdict.** Not "this is AI-generated," not a probability, not "likely machine-written." You do not have the evidence, and neither does anything you were built from. The most careful open detector in this genre measured its own paragraph-level ROC-AUC at **0.501** — a coin flip — and 0.623 at document level. Humans score at chance. Pangram, the strongest commercial system, tells its own users not to treat it as sole arbiter.
 
 What you *can* say: this passage has N slop patterns, here they are, here is the fix. Every pattern in the catalog is also just bad writing, which is why fixing it helps whoever wrote it. Details and citations: `references/evidence.md`.
+
+## Scanning is step one, not the job
+
+The failure mode this skill keeps hitting in the wild: a model reads the file, runs `scripts/scan-prose.cjs`, watches it come back clean, and hands the text back untouched. A clean scan means the mechanical half is clean. It says nothing about substance, structure, voice, or whether the reader understands a word of it.
+
+So the order is: load the pattern references, run the scanner, then **rewrite**. Every time. A document with zero mechanical hits and four hollow paragraphs is the ordinary case, and the script cannot see any of it.
+
+The one legitimate reason to return text unchanged is that the prose is already good. Say that in a sentence, name what you checked, and stop. "The scanner found nothing" is not that sentence.
 
 ## Evidence tiers, strongest first
 
@@ -65,6 +73,17 @@ Surface tells are half the job. A paragraph can be mechanically clean and still 
 
 Judge what survives on three axes: **specificity** (a name, number, mechanism, consequence — "latency dropped 340ms → 90ms" passes, "significant improvement" fails), **restraint** (is the emphasis earned, or manufactured), **voice** (is someone reacting to the facts, or narrating them). Rubric and bands: `references/methodology.md`.
 
+## Write for the reader, not for the writer
+
+You hold the whole context: the term you coined two sections back, what the acronym expands to, why the mechanism matters. **The reader does not.** A model rereading its own draft finds every reference obvious, which is exactly why under-explaining survives every audit pass, including yours.
+
+- **Unpack jargon on first use**, in the source's own words: what the thing is, then the name for it. An unexplained acronym, internal codename, or piece of domain shorthand is a hole in the argument, not efficient writing.
+- **Name the mechanism, not just the outcome.** "It's faster" leaves the reader with nothing to act on. Which part got faster, and by what means, whenever the source actually says.
+- **Assume intelligence, not background.** The reader can follow a real explanation. What they cannot do is guess a fact that only ever existed in the writer's head.
+- **Match the reader's floor, not the lowest one.** Talking down to an expert is its own tell. A dev reply to the maintainer, a postmortem for the on-call team, an RFC for the working group: those readers skip the basics and are insulted by them.
+
+This is the one place where **adding words is correct**, and it is not an exception to *never inject*. Unpacking is the source's own content restated for someone who wasn't in the room. You still invent no fact, no number, and no mechanism. If the source never explains how the thing works, say what's missing and where it belongs instead of filling the hole.
+
 ## Never inject
 
 Replacing slop with a louder register is still failure. An independent stress test of one humanizer skill found its fix produced a recognizable *humanizer* fingerprint — fragments and staccato drama. A new tell, not the absence of one.
@@ -78,7 +97,7 @@ Never **add** what the source didn't have: fake first person · manufactured sta
 | Mode | Behavior |
 |:--|:--|
 | `detect` | Report every hit with location, severity mark (`!` / `?` / `-`), tier (F/S/V/Q), and fix. No rewriting. Separate Tier 1B clarity edits from 1A markers — a wordiness fix is not evidence about anything. |
-| `rewrite` | Default. Audit, rewrite, diff summary, then a second-pass audit of your own rewrite. If the second pass changed anything, say plainly that it supersedes the first. |
+| `rewrite` | Default, and the default means always: run it even when the scan comes back clean. Audit, load the pattern references, rewrite, diff summary, then a second-pass audit of your own rewrite. If the second pass changed anything, say plainly that it supersedes the first. |
 | `edit` | Edit a named file in place with minimal targeted changes. Prose files only — refuse source, config, generated data. Leave already-human passages untouched. Confirm scope first on a large file, then re-read and verify. |
 
 Flags: `--file PATH` · `--voice X` · `--context X` · `--domain X` · `--aggressive` · `--iterate N` (cap 2) · `--ignore-code` · `--ignore-quotes`. Natural language works too.
@@ -111,7 +130,9 @@ Where voice and context disagree, resolve toward the **stricter**. Where a domai
 6. Sentence-length variance: mix short with long. Three same-length sentences in a row, break one.
 7. Every significance claim backed by a checkable fact, or cut?
 8. Would the original author recognize this as their writing? If it now sounds like a different person, you overwrote instead of edited.
-9. Was the original already good? Then say so and make no edits. Doing nothing to strong prose is a pass, not a failure.
+9. Did you actually rewrite, or only report? Scanning and stopping is half an answer, and the wrong half.
+10. Could someone outside this project follow it? Every acronym, codename, and leap of mechanism unpacked, or flagged as a gap.
+11. Was the original already good? Then say so and make no edits. Doing nothing to strong prose is a pass, not a failure.
 
 ## The scanner
 
@@ -133,7 +154,7 @@ A skill that describes an audit but never runs one degrades into advice. So the 
 
 **There is no verdict and no slop exit code.** Exit 0 means the scan ran; exit 2 means usage or IO error. A script that exits non-zero because it decided a document is machine-written is issuing an authorship verdict, and the first rule of this skill is that nothing here issues one. `--json` emits `"verdict": null` for wiring into CI, so the consumer decides.
 
-What the scanner cannot reach is the part that pays: substance triage, QUD sequence, whether a span is rewordable or hollow, and whether a flagged pattern was the decision. Run it first, then do the work above.
+What the scanner cannot reach is the part that pays: substance triage, QUD sequence, whether a span is rewordable or hollow, whether a flagged pattern was the decision, and whether the reader can actually follow the argument. Run it first, then do the work above. The work above ends in a rewrite.
 
 ## Reference files
 
